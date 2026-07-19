@@ -1,0 +1,71 @@
+{
+  "$schema": "https://raw.githubusercontent.com/can1357/oh-my-pi/main/packages/coding-agent/src/config/mcp-schema.json",
+  "mcpServers": {
+    "ardot": {
+      "type": "http",
+      "url": "http://127.0.0.1:50501/api/v1/mcp"
+    },
+    "feishu-mcp": {
+      "type": "http",
+      "url": "${FEISHU_MCP_URL}",
+      "enabled": false
+    },
+    "Framelink_Figma_MCP": {
+      "type": "stdio",
+      "command": "mise",
+      "args": [
+        "exec",
+        "node@20",
+        "--",
+        "npx",
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key=${MY_FIGMA_API_KEY}",
+        "--stdio"
+      ],
+      "enabled": true
+    },
+    "fetch": {
+      "type": "stdio",
+      "command": "bunx",
+      "args": [
+        "mcp-fetch-server"
+      ],
+      "env": {
+        "DEFAULT_LIMIT": "50000"
+      },
+      "enabled": false
+    },
+    "web-search": {
+      "type": "stdio",
+      "command": "bunx",
+      "args": [
+        "open-websearch@latest"
+      ],
+      "env": {
+        "ALLOWED_SEARCH_ENGINES": "bing,juejin,baidu,csdn,brave",
+        "DEFAULT_SEARCH_ENGINE": "bing",
+        "MODE": "stdio"
+      },
+      "enabled": false
+    },
+    "dart": {
+      "type": "stdio",
+      "command": "dart",
+      "args": [
+        "mcp-server",
+        "--force-roots-fallback"
+      ],
+      "enabled": false
+    },
+    "codegraph": {
+      "type": "stdio",
+      "command": "codegraph",
+      "args": [
+        "serve",
+        "--mcp"
+      ],
+      "enabled": true
+    }
+  }
+}

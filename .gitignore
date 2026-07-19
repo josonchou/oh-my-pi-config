@@ -11,7 +11,7 @@ agent/last-changelog-version
 
 # Credential-bearing local configuration
 agent/models.yml
-agent/mcp.json
+# agent/mcp.json
 .env
 .env.*
 !.env.example
@@ -27,7 +27,8 @@ install-id
 # Plugin dependencies
 **/node_modules/
 
-plugins/cache
+plugins/
+marketplaces
 
 stats.db*
 

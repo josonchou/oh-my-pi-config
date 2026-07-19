@@ -1,7 +1,0 @@
-{
-  "name": "omp-plugins",
-  "private": true,
-  "dependencies": {
-    "@tmustier/pi-tab-status": "0.1.4"
-  }
-}
