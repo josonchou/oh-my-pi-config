@@ -28,7 +28,7 @@ install-id
 **/node_modules/
 
 plugins/
-marketplaces
+marketplaces.json
 
 stats.db*
 
