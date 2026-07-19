@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "marketplaces": [
+    {
+      "name": "ponytail",
+      "sourceType": "github",
+      "sourceUri": "DietrichGebert/ponytail",
+      "catalogPath": "/Users/joson/.omp/plugins/cache/marketplaces/ponytail/marketplace.json",
+      "addedAt": "2026-07-17T06:20:50.979Z",
+      "updatedAt": "2026-07-19T07:20:25.137Z"
+    },
+    {
+      "name": "claude-plugins-official",
+      "sourceType": "github",
+      "sourceUri": "anthropics/claude-plugins-official",
+      "catalogPath": "/Users/joson/.omp/plugins/cache/marketplaces/claude-plugins-official/marketplace.json",
+      "addedAt": "2026-07-17T06:22:34.151Z",
+      "updatedAt": "2026-07-19T07:20:26.774Z"
+    }
+  ]
+}

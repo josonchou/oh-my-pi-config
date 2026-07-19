@@ -1,0 +1,20 @@
+{
+  "plugins": {
+    "@tmustier/pi-tab-status": {
+      "version": "0.1.4",
+      "enabledFeatures": null,
+      "enabled": true
+    },
+    "@dietrichgebert/ponytail": {
+      "version": "4.8.4",
+      "enabledFeatures": null,
+      "enabled": true
+    },
+    "sentry": {
+      "version": "1.2.0",
+      "enabledFeatures": null,
+      "enabled": true
+    }
+  },
+  "settings": {}
+}

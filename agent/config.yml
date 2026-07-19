@@ -1,0 +1,108 @@
+providers: 
+  webSearch: auto
+disabledProviders: 
+  - opencode
+  - codex
+setupVersion: 1
+dev: 
+  autoqa: true
+  autoqaConsent: granted
+task: 
+  eager: always
+  agentModelOverrides: 
+    init: openai-codex/gpt-5.6-terra
+    scout: openai-codex/gpt-5.4-mini
+    designer: openai-codex/gpt-5.6-terra
+    reviewer: openai-codex/gpt-5.4:medium
+    librarian: openai-codex/gpt-5.6-luna
+    task: openai-codex/gpt-5.6-sol
+    sonic: openai-codex/gpt-5.6-luna
+  prewalk: true
+  showResolvedModelBadge: true
+  enableLsp: true
+modelRoles: 
+  default: openai-codex/gpt-5.6-terra:xhigh
+  smol: openai-codex/gpt-5.3-codex-spark:medium
+  tiny: openai-codex/gpt-5.3-codex-spark:low
+  slow: openai-codex/gpt-5.6-sol:xhigh
+  title: openai-codex/gpt-5.6-luna:low
+  commit: openai-codex/gpt-5.3-codex-spark:low
+  plan: openai-codex/gpt-5.4:xhigh
+  advisor: openai-codex/gpt-5.6-terra:high
+  designer: openai-codex/gpt-5.6-terra:xhigh
+  vision: openai-codex/gpt-5.6-terra:xhigh
+  task: openai-codex/gpt-5.6-terra:medium
+  reviewer: openai-codex/gpt-5.4:medium
+defaultThinkingLevel: auto
+hideThinkingBlock: false
+advisor: 
+  enabled: true
+  subagents: false
+  syncBacklog: 1
+  immuneTurns: 3
+tier: 
+  advisor: inherit
+theme: 
+  dark: dark-catppuccin
+symbolPreset: nerd
+colorBlindMode: true
+terminal: 
+  showProgress: true
+display: 
+  shimmer: kitt
+  showTokenUsage: true
+images: 
+  blockImages: true
+memory: 
+  backend: local
+autolearn: 
+  enabled: true
+  autoContinue: true
+readLineNumbers: true
+web_search: 
+  enabled: true
+edit: 
+  streamingAbort: false
+retry: 
+  fallbackChains: 
+    openai-codex/gpt-5.6-terra: 
+      - github-copilot/claude-sonnet-5
+      - github-copilot/gemini-3.1-pro-preview
+      - opencode-go/kimi-k2.7-code
+      - opencode-go/minimax-m3
+      - opencode-go/qwen3.7-plus
+    openai-codex/gpt-5.6-sol: 
+      - github-copilot/claude-opus-4.8
+      - github-copilot/gemini-3.1-pro-preview
+      - opencode-go/deepseek-v4-pro
+      - opencode-go/qwen3.7-max
+    openai-codex/gpt-5.6-luna: 
+      - github-copilot/claude-haiku-4.5
+      - opencode-go/deepseek-v4-flash
+      - opencode-go/qwen3.6-plus
+    openai-codex/gpt-5.4-mini: 
+      - github-copilot/claude-haiku-4.5
+      - github-copilot/gemini-3.5-flash
+      - opencode-go/deepseek-v4-flash
+      - opencode-go/qwen3.6-plus
+    openai-codex/gpt-5.3-codex-spark: 
+      - github-copilot/kimi-k2.7-code
+      - github-copilot/claude-haiku-4.5
+      - opencode-go/deepseek-v4-pro
+    openai-codex/gpt-5.4: 
+      - opencode-go/deepseek-v4-pro
+async: 
+  enabled: true
+recap: 
+  enabled: true
+compaction: 
+  strategy: context-full
+  thresholdPercent: 80
+  midTurnEnabled: true
+  remoteEnabled: true
+tui: 
+  imeSafeCursor: true
+astGrep: 
+  enabled: true
+checkpoint: 
+  enabled: true

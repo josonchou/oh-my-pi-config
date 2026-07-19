@@ -1,0 +1,35 @@
+# OMP runtime state, session history, and generated artifacts
+agent/agent.db*
+agent/history.db*
+agent/models.db*
+agent/cache/
+agent/blobs/
+agent/memories/
+agent/sessions/
+agent/terminal-sessions/
+agent/last-changelog-version
+
+# Credential-bearing local configuration
+agent/models.yml
+agent/mcp.json
+.env
+.env.*
+!.env.example
+
+# Backups and local runtime data
+agent/config.yml.bak*
+logs/
+run/
+puppeteer/
+gpu_cache.json
+install-id
+
+# Plugin dependencies
+**/node_modules/
+
+plugins/cache
+
+stats.db*
+
+# OS metadata
+.DS_Store

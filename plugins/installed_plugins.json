@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "plugins": {
+    "ponytail@ponytail": [
+      {
+        "scope": "user",
+        "installPath": "/Users/joson/.omp/plugins/cache/plugins/ponytail___ponytail___4.8.4",
+        "version": "4.8.4",
+        "installedAt": "2026-07-17T06:21:24.112Z",
+        "lastUpdated": "2026-07-17T06:21:24.112Z"
+      }
+    ],
+    "sentry@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/joson/.omp/plugins/cache/plugins/claude-plugins-official___sentry___1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-07-17T06:22:48.389Z",
+        "lastUpdated": "2026-07-17T06:22:48.389Z"
+      }
+    ]
+  }
+}
