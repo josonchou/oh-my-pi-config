@@ -1,26 +1,26 @@
-providers: 
+providers:
   webSearch: auto
-disabledProviders: 
+disabledProviders:
   - opencode
   - codex
 setupVersion: 1
-dev: 
+dev:
   autoqa: true
   autoqaConsent: granted
-task: 
-  eager: always
-  agentModelOverrides: 
+task:
+  eager: default
+  agentModelOverrides:
     init: openai-codex/gpt-5.6-terra
     scout: openai-codex/gpt-5.4-mini
-    designer: openai-codex/gpt-5.6-terra
+    designer: opencode-go/kimi-k3
     reviewer: openai-codex/gpt-5.4:medium
     librarian: openai-codex/gpt-5.6-luna
-    task: openai-codex/gpt-5.6-sol
+    task: openai-codex/gpt-5.6-terra
     sonic: openai-codex/gpt-5.6-luna
   prewalk: true
   showResolvedModelBadge: true
   enableLsp: true
-modelRoles: 
+modelRoles:
   default: openai-codex/gpt-5.6-terra:xhigh
   smol: openai-codex/gpt-5.3-codex-spark:medium
   tiny: openai-codex/gpt-5.3-codex-spark:low
@@ -28,81 +28,83 @@ modelRoles:
   title: openai-codex/gpt-5.6-luna:low
   commit: openai-codex/gpt-5.3-codex-spark:low
   plan: openai-codex/gpt-5.4:xhigh
-  advisor: openai-codex/gpt-5.6-terra:high
+  # advisor: openai-codex/gpt-5.6-terra:high
+  advisor: opencode-go/deepseek-v4-pro:max
   designer: openai-codex/gpt-5.6-terra:xhigh
   vision: openai-codex/gpt-5.6-terra:xhigh
   task: openai-codex/gpt-5.6-terra:medium
   reviewer: openai-codex/gpt-5.4:medium
 defaultThinkingLevel: auto
 hideThinkingBlock: false
-advisor: 
+advisor:
   enabled: true
   subagents: false
   syncBacklog: 1
   immuneTurns: 3
-tier: 
+tier:
   advisor: inherit
-theme: 
-  dark: dark-catppuccin
+theme:
+  dark: dark-tokyo-night
 symbolPreset: nerd
 colorBlindMode: true
-terminal: 
+terminal:
   showProgress: true
-display: 
+display:
   shimmer: kitt
   showTokenUsage: true
-images: 
+images:
   blockImages: true
-memory: 
+memory:
   backend: local
-autolearn: 
+autolearn:
   enabled: true
   autoContinue: true
 readLineNumbers: true
-web_search: 
+web_search:
   enabled: true
-edit: 
+edit:
   streamingAbort: false
-retry: 
-  fallbackChains: 
-    openai-codex/gpt-5.6-terra: 
+retry:
+  fallbackChains:
+    openai-codex/gpt-5.6-terra:
       - github-copilot/claude-sonnet-5
       - github-copilot/gemini-3.1-pro-preview
       - opencode-go/kimi-k2.7-code
       - opencode-go/minimax-m3
       - opencode-go/qwen3.7-plus
-    openai-codex/gpt-5.6-sol: 
+    openai-codex/gpt-5.6-sol:
       - github-copilot/claude-opus-4.8
       - github-copilot/gemini-3.1-pro-preview
       - opencode-go/deepseek-v4-pro
       - opencode-go/qwen3.7-max
-    openai-codex/gpt-5.6-luna: 
+    openai-codex/gpt-5.6-luna:
       - github-copilot/claude-haiku-4.5
       - opencode-go/deepseek-v4-flash
       - opencode-go/qwen3.6-plus
-    openai-codex/gpt-5.4-mini: 
+    openai-codex/gpt-5.4-mini:
       - github-copilot/claude-haiku-4.5
       - github-copilot/gemini-3.5-flash
       - opencode-go/deepseek-v4-flash
       - opencode-go/qwen3.6-plus
-    openai-codex/gpt-5.3-codex-spark: 
+    openai-codex/gpt-5.3-codex-spark:
       - github-copilot/kimi-k2.7-code
       - github-copilot/claude-haiku-4.5
       - opencode-go/deepseek-v4-pro
-    openai-codex/gpt-5.4: 
+    openai-codex/gpt-5.4:
       - opencode-go/deepseek-v4-pro
-async: 
+async:
   enabled: true
-recap: 
+recap:
   enabled: true
-compaction: 
+compaction:
   strategy: context-full
   thresholdPercent: 80
   midTurnEnabled: true
   remoteEnabled: true
-tui: 
+tui:
   imeSafeCursor: true
-astGrep: 
+astGrep:
   enabled: true
-checkpoint: 
+checkpoint:
   enabled: true
+
