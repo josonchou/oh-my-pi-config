@@ -1,14 +1,13 @@
-providers:
-  webSearch: auto
+providers: {}
 disabledProviders:
   - opencode
   - codex
-setupVersion: 1
+setupVersion: 2
 dev:
   autoqa: true
   autoqaConsent: granted
 task:
-  eager: default
+  eager: preferred
   agentModelOverrides:
     init: openai-codex/gpt-5.6-terra
     scout: openai-codex/gpt-5.4-mini
@@ -22,29 +21,23 @@ task:
   enableLsp: true
 modelRoles:
   default: openai-codex/gpt-5.6-terra:xhigh
-  smol: openai-codex/gpt-5.3-codex-spark:medium
-  tiny: openai-codex/gpt-5.3-codex-spark:low
+  tiny: openai-codex/gpt-5.6-luna:low
   slow: openai-codex/gpt-5.6-sol:xhigh
   title: openai-codex/gpt-5.6-luna:low
   commit: openai-codex/gpt-5.3-codex-spark:low
   plan: openai-codex/gpt-5.4:xhigh
-  # advisor: openai-codex/gpt-5.6-terra:high
-  advisor: opencode-go/deepseek-v4-pro:max
+  advisor: openai-codex/gpt-5.3-codex-spark
   designer: openai-codex/gpt-5.6-terra:xhigh
-  vision: openai-codex/gpt-5.6-terra:xhigh
+  vision: opencode-go/mimo-v2.5
   task: openai-codex/gpt-5.6-terra:medium
   reviewer: openai-codex/gpt-5.4:medium
+  smol: openai-codex/gpt-5.6-luna:medium
 defaultThinkingLevel: auto
 hideThinkingBlock: false
-advisor:
-  enabled: true
-  subagents: false
-  syncBacklog: 1
-  immuneTurns: 3
 tier:
   advisor: inherit
 theme:
-  dark: dark-tokyo-night
+  dark: anthracite
 symbolPreset: nerd
 colorBlindMode: true
 terminal:
@@ -53,7 +46,7 @@ display:
   shimmer: kitt
   showTokenUsage: true
 images:
-  blockImages: true
+  blockImages: false
 memory:
   backend: local
 autolearn:
@@ -67,44 +60,38 @@ edit:
 retry:
   fallbackChains:
     openai-codex/gpt-5.6-terra:
-      - github-copilot/claude-sonnet-5
-      - github-copilot/gemini-3.1-pro-preview
-      - opencode-go/kimi-k2.7-code
-      - opencode-go/minimax-m3
-      - opencode-go/qwen3.7-plus
+      - opencode-go/mimo-v2.5
     openai-codex/gpt-5.6-sol:
-      - github-copilot/claude-opus-4.8
-      - github-copilot/gemini-3.1-pro-preview
-      - opencode-go/deepseek-v4-pro
-      - opencode-go/qwen3.7-max
+      - opencode-go/kimi-k2.7-code
     openai-codex/gpt-5.6-luna:
-      - github-copilot/claude-haiku-4.5
-      - opencode-go/deepseek-v4-flash
-      - opencode-go/qwen3.6-plus
+      - opencode-go/gpt-5.6-luna
+      - opencode-go/deepseek-v4-flash-vision-exp
     openai-codex/gpt-5.4-mini:
-      - github-copilot/claude-haiku-4.5
-      - github-copilot/gemini-3.5-flash
       - opencode-go/deepseek-v4-flash
-      - opencode-go/qwen3.6-plus
     openai-codex/gpt-5.3-codex-spark:
-      - github-copilot/kimi-k2.7-code
-      - github-copilot/claude-haiku-4.5
-      - opencode-go/deepseek-v4-pro
+      - openai-codex/gpt-5.6-luna
+      - opencode-go/mimo-v2.5
     openai-codex/gpt-5.4:
-      - opencode-go/deepseek-v4-pro
+      - opencode-go/mimo-v2.5
 async:
   enabled: true
 recap:
   enabled: true
 compaction:
-  strategy: context-full
   thresholdPercent: 80
   midTurnEnabled: true
-  remoteEnabled: true
+  methodOrder:
+    - remote
+    - soft
 tui:
   imeSafeCursor: true
 astGrep:
   enabled: true
 checkpoint:
   enabled: true
-
+composer:
+  shape: claude
+statusLine:
+  preset: nerd
+  compactThinkingLevel: false
+  separator: powerline

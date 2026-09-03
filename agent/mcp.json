@@ -3,12 +3,17 @@
   "mcpServers": {
     "ardot": {
       "type": "http",
-      "url": "http://127.0.0.1:50501/api/v1/mcp"
+      "url": "http://127.0.0.1:50501/api/v1/mcp",
+      "enabled": false
     },
     "feishu-mcp": {
       "type": "http",
       "url": "${FEISHU_MCP_URL}",
       "enabled": false
+    },
+    "Figma_Desktop": {
+      "type": "http",
+      "url": "http://127.0.0.1:3845/mcp"
     },
     "Framelink_Figma_MCP": {
       "type": "stdio",
@@ -23,14 +28,12 @@
         "--figma-api-key=${MY_FIGMA_API_KEY}",
         "--stdio"
       ],
-      "enabled": true
+      "enabled": false
     },
     "fetch": {
       "type": "stdio",
       "command": "bunx",
-      "args": [
-        "mcp-fetch-server"
-      ],
+      "args": ["mcp-fetch-server"],
       "env": {
         "DEFAULT_LIMIT": "50000"
       },
@@ -39,9 +42,7 @@
     "web-search": {
       "type": "stdio",
       "command": "bunx",
-      "args": [
-        "open-websearch@latest"
-      ],
+      "args": ["open-websearch@latest"],
       "env": {
         "ALLOWED_SEARCH_ENGINES": "bing,juejin,baidu,csdn,brave",
         "DEFAULT_SEARCH_ENGINE": "bing",
@@ -52,19 +53,13 @@
     "dart": {
       "type": "stdio",
       "command": "dart",
-      "args": [
-        "mcp-server",
-        "--force-roots-fallback"
-      ],
+      "args": ["mcp-server", "--force-roots-fallback"],
       "enabled": false
     },
     "codegraph": {
       "type": "stdio",
       "command": "codegraph",
-      "args": [
-        "serve",
-        "--mcp"
-      ],
+      "args": ["serve", "--mcp"],
       "enabled": true
     }
   }
