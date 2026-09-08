@@ -1,4 +1,5 @@
-providers: {}
+providers:
+  {}
 disabledProviders:
   - opencode
   - codex
@@ -11,7 +12,7 @@ task:
   agentModelOverrides:
     init: openai-codex/gpt-5.6-terra
     scout: openai-codex/gpt-5.4-mini
-    designer: opencode-go/kimi-k3
+    designer: opencode-go/kimi-k2.7-code
     reviewer: openai-codex/gpt-5.4:medium
     librarian: openai-codex/gpt-5.6-luna
     task: openai-codex/gpt-5.6-terra
@@ -20,11 +21,11 @@ task:
   showResolvedModelBadge: true
   enableLsp: true
 modelRoles:
-  default: openai-codex/gpt-5.6-terra:xhigh
+  default: openai-codex/gpt-5.6-sol:xhigh
   tiny: openai-codex/gpt-5.6-luna:low
-  slow: openai-codex/gpt-5.6-sol:xhigh
+  slow: openai-codex/gpt-6-astra:medium
   title: openai-codex/gpt-5.6-luna:low
-  commit: openai-codex/gpt-5.3-codex-spark:low
+  commit: openai-codex/gpt-5.6-terra:medium
   plan: openai-codex/gpt-5.4:xhigh
   advisor: openai-codex/gpt-5.3-codex-spark
   designer: openai-codex/gpt-5.6-terra:xhigh
@@ -55,6 +56,10 @@ autolearn:
 readLineNumbers: true
 web_search:
   enabled: true
+skills:
+  ignoredSkills:
+    - find-docs
+    - find-skills
 edit:
   streamingAbort: false
 retry:
@@ -95,3 +100,4 @@ statusLine:
   preset: nerd
   compactThinkingLevel: false
   separator: powerline
+steeringMode: one-at-a-time

@@ -4,10 +4,13 @@ agent/history.db*
 agent/models.db*
 agent/cache/
 agent/blobs/
-agent/memories/
 agent/sessions/
 agent/terminal-sessions/
 agent/last-changelog-version
+
+# Externally managed agent data (local symlinks; see README.md)
+agent/managed-skills
+agent/memories
 
 # Credential-bearing local configuration
 agent/models.yml
