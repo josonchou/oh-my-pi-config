@@ -33,6 +33,9 @@ install-id
 plugins/
 marketplaces.json
 
+cache
+natives
+
 stats.db*
 
 *.db

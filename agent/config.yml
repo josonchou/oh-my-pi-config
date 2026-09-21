@@ -1,5 +1,4 @@
-providers:
-  {}
+providers: {}
 disabledProviders:
   - opencode
   - codex
@@ -10,28 +9,29 @@ dev:
 task:
   eager: preferred
   agentModelOverrides:
-    init: openai-codex/gpt-5.6-terra
-    scout: openai-codex/gpt-5.4-mini
-    designer: opencode-go/kimi-k2.7-code
-    reviewer: openai-codex/gpt-5.4:medium
-    librarian: openai-codex/gpt-5.6-luna
-    task: openai-codex/gpt-5.6-terra
-    sonic: openai-codex/gpt-5.6-luna
+    init: "@task"
+    scout: "@smol"
+    designer: "@designer"
+    reviewer: "@reviewer"
+    security-reviewer: "@reviewer"
+    librarian: "@smol"
+    task: "@task"
+    sonic: "@tiny"
   prewalk: true
   showResolvedModelBadge: true
   enableLsp: true
 modelRoles:
   default: openai-codex/gpt-5.6-sol:xhigh
   tiny: openai-codex/gpt-5.6-luna:low
-  slow: openai-codex/gpt-6-astra:medium
-  title: openai-codex/gpt-5.6-luna:low
+  slow: openai-codex/gpt-6-astra:xhigh
+  title: "@tiny"
   commit: openai-codex/gpt-5.6-terra:medium
-  plan: openai-codex/gpt-5.4:xhigh
-  advisor: openai-codex/gpt-5.3-codex-spark
-  designer: openai-codex/gpt-5.6-terra:xhigh
-  vision: opencode-go/mimo-v2.5
-  task: openai-codex/gpt-5.6-terra:medium
-  reviewer: openai-codex/gpt-5.4:medium
+  plan: openai-codex/gpt-6-astra:high
+  advisor: opencode-go/deepseek-v4.1-flash
+  designer: openai-codex/gpt-5.6-sol:high
+  vision: opencode-go/deepseek-v4.1-flash
+  task: openai-codex/gpt-5.6-sol:medium
+  reviewer: openai-codex/gpt-5.6-terra:high
   smol: openai-codex/gpt-5.6-luna:medium
 defaultThinkingLevel: auto
 hideThinkingBlock: false
@@ -64,19 +64,18 @@ edit:
   streamingAbort: false
 retry:
   fallbackChains:
+    openai-codex/gpt-6-astra:
+      - opencode-go/kimi-k2.7-code
+      - opencode-go/mimo-v2.5
     openai-codex/gpt-5.6-terra:
       - opencode-go/mimo-v2.5
     openai-codex/gpt-5.6-sol:
       - opencode-go/kimi-k2.7-code
     openai-codex/gpt-5.6-luna:
       - opencode-go/gpt-5.6-luna
-      - opencode-go/deepseek-v4-flash-vision-exp
-    openai-codex/gpt-5.4-mini:
-      - opencode-go/deepseek-v4-flash
-    openai-codex/gpt-5.3-codex-spark:
-      - openai-codex/gpt-5.6-luna
-      - opencode-go/mimo-v2.5
-    openai-codex/gpt-5.4:
+      - opencode-go/deepseek-v4.1-flash
+    openai-codex/gpt-5.5:
+      - opencode-go/deepseek-v4.1-flash
       - opencode-go/mimo-v2.5
 async:
   enabled: true
@@ -90,6 +89,8 @@ compaction:
     - soft
 tui:
   imeSafeCursor: true
+  codexResetFireworks: true
+  textSizing: true
 astGrep:
   enabled: true
 checkpoint:
@@ -101,3 +102,5 @@ statusLine:
   compactThinkingLevel: false
   separator: powerline
 steeringMode: one-at-a-time
+codexResets:
+  autoRedeem: "no"

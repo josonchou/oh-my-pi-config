@@ -2,9 +2,7 @@
 description: 委派独立 commit 子代理创建安全 Git 提交
 ---
 
-这是一个无参数命令。若 `$ARGUMENTS` 非空，立即拒绝派发并说明本命令不接受参数。
-
-若 `$ARGUMENTS` 为空，当前主 Agent 的唯一动作是调用一次 `task` 工具创建独立 child session；主 Agent 不得亲自执行任何 Git 命令，不得切换或复用主会话模型。调用必须显式选择 `agent: commit`，并将下面完整、自包含的任务文本原样交给子代理；等待 blocking child 返回后，只返回子代理的实际结果：
+当前主 Agent 的唯一动作是调用一次 `task` 工具创建独立 child session；主 Agent 不得亲自执行任何 Git 命令，不得切换或复用主会话模型。调用必须显式选择 `agent: commit`，并将下面完整、自包含的任务文本原样交给子代理；等待 blocking child 返回后，只返回子代理的实际结果：
 
 ```text
 请在当前 Git 项目中完成一次安全提交，并独立承担全部 Git 操作。
@@ -16,3 +14,6 @@ description: 委派独立 commit 子代理创建安全 Git 提交
 - 禁止使用 `--no-verify`、force/强推、修改 Git 配置，以及 `reset --hard`、`clean`、会丢弃改动的 `checkout`/`restore` 等破坏性命令。
 - 任一步骤失败立即停止并报告实际错误、当前状态和现场路径；不要把未创建成功的提交说成完成，不要为了收尾清理或重置现场。成功后报告实际创建的 commit SHA。
 - 不得要求主 Agent 代执行命令，不得依赖父对话历史；`gc` 只创建提交，不执行 fetch、cherry-pick 或 push。
+
+$ARGUMENTS
+```
