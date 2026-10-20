@@ -41,3 +41,12 @@ git check-ignore -v agent/managed-skills agent/memories
 ```
 
 两个 `test -L` 命令应成功；`readlink` 应指向预期的外部存储路径；`git check-ignore` 应显示 `.gitignore` 中对应规则。
+
+## Sourcebot MCP
+
+- 用户级配置位于 `agent/mcp.json`，通过 Streamable HTTP 连接 `https://fedcode.douyu.tv/api/mcp`。
+- `Authorization` 使用 `Bearer ${SOURCEBOT_API_KEY}`；密钥保存在本机 `~/.omp/agent/.env`，文件权限为 `600`，已被 Git 忽略。
+- 在 Sourcebot 的 **Settings → API Keys** 创建密钥，以 `SOURCEBOT_API_KEY=实际密钥` 写入上述私有环境文件，OMP 启动时自动读取。
+- 已有进程环境中的同名变量优先于 `.env`；如果 Shell 也导出了密钥，轮换时需同步更新，避免旧值覆盖。
+- 新增或修改密钥后，退出并重新启动 OMP。仅修改 MCP 配置时可用 `/mcp reload`；它不能让已有进程继承新环境变量。连接状态用 `/mcp list` 检查。
+- 可调用 `list_repos` 验证仓库查询；Sourcebot 只能访问服务端已索引的仓库和分支，不能读取本地未提交修改。

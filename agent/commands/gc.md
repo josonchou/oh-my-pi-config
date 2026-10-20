@@ -2,7 +2,12 @@
 description: 委派独立 commit 子代理创建安全 Git 提交
 ---
 
-当前主 Agent 的唯一动作是调用一次 `task` 工具创建独立 child session；主 Agent 不得亲自执行任何 Git 命令，不得切换或复用主会话模型。调用必须显式选择 `agent: commit`，并将下面完整、自包含的任务文本原样交给子代理；等待 blocking child 返回后，只返回子代理的实际结果：
+当前主 Agent 的唯一动作是调用一次 `task` 工具创建独立的 blocking `commit` child session；主 Agent 不得亲自执行任何 Git 命令，不得切换或复用主会话模型。调用使用当前批量参数形状，必须明确提供：
+
+- `context`：非空字符串 `目标：在当前 Git 项目创建一次安全提交。约束：全部 Git 检查、暂存、提交及提交后核验由独立 commit 子代理完成；仅提交，不执行 fetch、cherry-pick 或 push；子代理不依赖父对话历史。`。不得省略或传入空字符串。
+- `tasks`：仅一项，设 `agent: "commit"`、`solutionSpace: "安全提交步骤已明确；提交范围以实际工作区差异为准"`，`task` 为下方代码块的完整文本（包含展开后的命令参数）。
+
+等待 blocking child 返回后，只返回子代理的实际结果：
 
 ```text
 请在当前 Git 项目中完成一次安全提交，并独立承担全部 Git 操作。

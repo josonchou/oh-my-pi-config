@@ -1,4 +1,3 @@
-providers: {}
 disabledProviders:
   - opencode
   - codex
@@ -21,18 +20,18 @@ task:
   showResolvedModelBadge: true
   enableLsp: true
 modelRoles:
-  default: openai-codex/gpt-5.6-sol:xhigh
-  tiny: openai-codex/gpt-5.6-luna:low
+  default: openai-codex/gpt-6.1-sol:max
+  tiny: openai-codex/gpt-6-luna
   slow: openai-codex/gpt-6-astra:xhigh
   title: "@tiny"
-  commit: openai-codex/gpt-5.6-terra:medium
+  commit: opencode-go/deepseek-v4.1-flash
   plan: openai-codex/gpt-6-astra:high
   advisor: opencode-go/deepseek-v4.1-flash
-  designer: openai-codex/gpt-5.6-sol:high
+  designer: openai-codex/gpt-6.1-sol:high
   vision: opencode-go/deepseek-v4.1-flash
-  task: openai-codex/gpt-5.6-sol:medium
-  reviewer: openai-codex/gpt-5.6-terra:high
-  smol: openai-codex/gpt-5.6-luna:medium
+  task: openai-codex/gpt-6.1-sol:medium
+  reviewer: openai-codex/gpt-6.1-sol:high
+  smol: openai-codex/gpt-6-luna
 defaultThinkingLevel: auto
 hideThinkingBlock: false
 tier:
@@ -65,18 +64,17 @@ edit:
 retry:
   fallbackChains:
     openai-codex/gpt-6-astra:
+      - openai-codex/gpt-6.1-sol
       - opencode-go/kimi-k2.7-code
       - opencode-go/mimo-v2.5
     openai-codex/gpt-5.6-terra:
+      - openai-codex/gpt-6.1-sol
       - opencode-go/mimo-v2.5
-    openai-codex/gpt-5.6-sol:
+    openai-codex/gpt-6.1-sol:
       - opencode-go/kimi-k2.7-code
-    openai-codex/gpt-5.6-luna:
-      - opencode-go/gpt-5.6-luna
+    openai-codex/gpt-6-luna:
+      - opencode-go/gpt-6-luna
       - opencode-go/deepseek-v4.1-flash
-    openai-codex/gpt-5.5:
-      - opencode-go/deepseek-v4.1-flash
-      - opencode-go/mimo-v2.5
 async:
   enabled: true
 recap:
@@ -91,16 +89,18 @@ tui:
   imeSafeCursor: true
   codexResetFireworks: true
   textSizing: true
+  mouse: false
 astGrep:
   enabled: true
 checkpoint:
   enabled: true
 composer:
-  shape: claude
+  shape: pi
 statusLine:
   preset: nerd
-  compactThinkingLevel: false
+  compactThinkingLevel: true
   separator: powerline
+  contextLine: annotated
 steeringMode: one-at-a-time
 codexResets:
   autoRedeem: "no"

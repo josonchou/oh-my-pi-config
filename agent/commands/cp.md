@@ -2,7 +2,12 @@
 description: 委派独立 commit 子代理提交并同步 live
 ---
 
-当前主 Agent 的唯一动作是调用一次 `task` 工具创建独立 child session；主 Agent 不得亲自执行任何 Git 命令，不得切换或复用主会话模型。调用必须显式选择 `agent: commit`，并将下面完整、自包含的任务文本原样交给子代理；等待 blocking child 返回后，只返回子代理的实际结果：
+当前主 Agent 的唯一动作是调用一次 `task` 工具创建独立的 blocking `commit` child session；主 Agent 不得亲自执行任何 Git 命令，不得切换或复用主会话模型。调用使用当前批量参数形状，必须明确提供：
+
+- `context`：非空字符串 `目标：在当前 Git 项目安全提交，并将刚创建的提交同步到 origin/live。约束：全部 Git 操作由独立 commit 子代理完成；仅拣选新提交，不切换调用者工作树或分支，不强推；子代理不依赖父对话历史。`。不得省略或传入空字符串。
+- `tasks`：仅一项，设 `agent: "commit"`、`solutionSpace: "两阶段提交与同步流程已明确；提交范围和冲突状态由仓库实际情况决定"`，`task` 为下方代码块的完整文本（包含展开后的命令参数）。
+
+等待 blocking child 返回后，只返回子代理的实际结果：
 
 ```text
 请在当前 Git 项目中先完成安全提交，再将该提交同步到 origin/live，并独立承担全部 Git 操作。

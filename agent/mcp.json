@@ -61,6 +61,13 @@
       "command": "codegraph",
       "args": ["serve", "--mcp"],
       "enabled": true
+    },
+    "sourcebot": {
+      "type": "http",
+      "url": "https://fedcode.douyu.tv/api/mcp",
+      "headers": {
+        "Authorization": "Bearer ${SOURCEBOT_API_KEY}"
+      }
     }
   }
 }
