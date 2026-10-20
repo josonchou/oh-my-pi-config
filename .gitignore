@@ -6,6 +6,8 @@ agent/cache/
 agent/blobs/
 agent/sessions/
 agent/terminal-sessions/
+agent/custom-session-files/
+agent/predict/
 agent/last-changelog-version
 
 # Externally managed agent data (local symlinks; see README.md)
@@ -39,6 +41,8 @@ natives
 stats.db*
 
 *.db
+*.db-shm
+*.db-wal
 
 # OS metadata
 .DS_Store
