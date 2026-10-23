@@ -1,0 +1,8 @@
+{
+  "name": "model-atelier",
+  "version": "1.0.0",
+  "description": "会话级临时模型预设切换与恢复。",
+  "omp": {
+    "extensions": ["./index.ts"]
+  }
+}

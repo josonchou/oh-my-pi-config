@@ -19,12 +19,16 @@ task:
   prewalk: true
   showResolvedModelBadge: true
   enableLsp: true
+  isolation:
+    enabled: true
+    merge: patch
+    apply: true
 modelRoles:
   default: openai-codex/gpt-6.1-sol:max
   tiny: openai-codex/gpt-6-luna
   slow: openai-codex/gpt-6-astra:xhigh
   title: "@tiny"
-  commit: opencode-go/deepseek-v4.1-flash
+  commit: opencode-go/deepseek-v4.1-flash:low
   plan: openai-codex/gpt-6-astra:high
   advisor: opencode-go/deepseek-v4.1-flash
   designer: openai-codex/gpt-6.1-sol:high
@@ -64,17 +68,19 @@ edit:
 retry:
   fallbackChains:
     openai-codex/gpt-6-astra:
-      - openai-codex/gpt-6.1-sol
-      - opencode-go/kimi-k2.7-code
-      - opencode-go/mimo-v2.5
-    openai-codex/gpt-5.6-terra:
-      - openai-codex/gpt-6.1-sol
-      - opencode-go/mimo-v2.5
+      - deepseek/deepseek-flash:max
     openai-codex/gpt-6.1-sol:
-      - opencode-go/kimi-k2.7-code
+      - deepseek/deepseek-flash:high
     openai-codex/gpt-6-luna:
-      - opencode-go/gpt-6-luna
-      - opencode-go/deepseek-v4.1-flash
+      - deepseek/deepseek-flash:low
+    opencode-go/deepseek-v4.1-flash:
+      - deepseek/deepseek-flash
+    opencode-go/glm-5.3:
+      - deepseek/deepseek-flash
+    opencode-go/gpt-6-luna:
+      - deepseek/deepseek-flash
+    opencode-go/claude-haiku-5-5:
+      - deepseek/deepseek-flash
 async:
   enabled: true
 recap:
@@ -104,3 +110,34 @@ statusLine:
 steeringMode: one-at-a-time
 codexResets:
   autoRedeem: "no"
+modelPresets:
+  codex:
+    modelRoles:
+      default: openai-codex/gpt-6.1-sol:max
+      tiny: openai-codex/gpt-6-luna
+      slow: openai-codex/gpt-6-astra:xhigh
+      title: "@tiny"
+      commit: opencode-go/deepseek-v4.1-flash:low
+      plan: openai-codex/gpt-6-astra:high
+      advisor: opencode-go/deepseek-v4.1-flash
+      designer: openai-codex/gpt-6.1-sol:high
+      vision: opencode-go/deepseek-v4.1-flash
+      task: openai-codex/gpt-6.1-sol:medium
+      reviewer: openai-codex/gpt-6.1-sol:high
+      smol: openai-codex/gpt-6-luna
+    defaultThinkingLevel: auto
+  ds:
+    modelRoles:
+      default: opencode-go/deepseek-v4.1-flash:high
+      tiny: opencode-go/gpt-6-luna:low
+      slow: opencode-go/deepseek-v4.1-flash:max
+      title: "@tiny"
+      commit: "@smol"
+      plan: opencode-go/glm-5.3:high
+      advisor: opencode-go/claude-haiku-5-5:meddium
+      designer: opencode-go/deepseek-v4.1-flash:high
+      vision: opencode-go/deepseek-v4.1-flash:high
+      task: opencode-go/deepseek-v4.1-flash:high
+      reviewer: opencode-go/deepseek-v4-pro:high
+      smol: opencode-go/gpt-6-luna:low
+    defaultThinkingLevel: auto
