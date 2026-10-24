@@ -24,18 +24,18 @@ task:
     merge: patch
     apply: true
 modelRoles:
-  default: openai-codex/gpt-6.1-sol:max
-  tiny: openai-codex/gpt-6-luna
-  slow: openai-codex/gpt-6-astra:xhigh
+  default: opencode-go/deepseek-v4.1-flash:high
+  tiny: opencode-go/gpt-6-luna:low
+  slow: opencode-go/deepseek-v4.1-flash:max
   title: "@tiny"
-  commit: opencode-go/deepseek-v4.1-flash:low
-  plan: openai-codex/gpt-6-astra:high
-  advisor: opencode-go/deepseek-v4.1-flash
-  designer: openai-codex/gpt-6.1-sol:high
-  vision: opencode-go/deepseek-v4.1-flash
-  task: openai-codex/gpt-6.1-sol:medium
-  reviewer: openai-codex/gpt-6.1-sol:high
-  smol: openai-codex/gpt-6-luna
+  commit: "@smol"
+  plan: opencode-go/glm-5.3:high
+  advisor: opencode-go/claude-haiku-5-5:meddium
+  designer: opencode-go/deepseek-v4.1-flash:high
+  vision: opencode-go/deepseek-v4.1-flash:high
+  task: opencode-go/deepseek-v4.1-flash:high
+  reviewer: opencode-go/deepseek-v4-pro:high
+  smol: opencode-go/gpt-6-luna:low
 defaultThinkingLevel: auto
 hideThinkingBlock: false
 tier:
